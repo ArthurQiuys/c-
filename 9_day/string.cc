@@ -101,7 +101,10 @@ String & String::operator+=(const char* rhs)
 }
 String operator+(const String &a, const String &b)
 {
-
+    String c;
+    c+=a;
+    c+=b;
+    return c;
 }
 String operator+(const String &a, const char *b)
 {
