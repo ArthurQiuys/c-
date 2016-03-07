@@ -93,13 +93,16 @@ inline size_t String::use_count() const
 }
 String::CharPraxy String::operator[](size_t idx)
 {
+    std::cout << "operator[]" << std::endl;
     return CharPraxy(*this, idx);
 }
+#if 0
 char & String::operator[](size_t idx) const
 {
     std::cout << "[char]" << std::endl;
     return pstr_[idx];
 }
+#endif
 String::CharPraxy & String::CharPraxy::operator=(const char & ch)
 {
     std::cout << "=" << std::endl;
@@ -131,10 +134,12 @@ int main(void)
     String s2 = s1;
     String s3 ;
     s3 = s2;
-    std::cout << "use_count ="<< s1.use_count() << std::endl;
+    std::cout << "use_count ="<< s1.use_count() << std::endl; 
     std::cout << "use_count ="<< s2.use_count() << std::endl;
     std::cout << "--------------" << std::endl;
-    s1[1]='S';
+    std::cout << s2[1] << std::endl;
+    std::cout << "--------------" << std::endl;
+    s2[1]='S';
     std::cout << "-------------" << std::endl;
     std::cout << "s1="<<s1 << std::endl;
     std::cout << "use_count ="<< s3.use_count() << std::endl;
@@ -144,4 +149,4 @@ int main(void)
     s4 = "helle";
     std::cout << "s4 = "<<s4 << std::endl;
     return 0;
-.}      
+}      
