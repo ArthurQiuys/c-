@@ -144,4 +144,4 @@ int main(void)
     s4 = "helle";
     std::cout << "s4 = "<<s4 << std::endl;
     return 0;
-}
+.}      
